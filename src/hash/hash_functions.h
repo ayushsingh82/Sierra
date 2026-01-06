@@ -3,17 +3,20 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdbool.h>
+#include "../core/merkle_tree.h"
 
 // Hash types - use definitions from merkle_tree.h
 
 // SHA-256 definitions
 #define SHA256_HASH_SIZE 32
+#define SHA256_BLOCK_SIZE 64
 
 typedef struct {
     uint32_t state[8];
     uint8_t buffer[64];
     size_t buffer_len;
-    uint64_t total_len;
+    uint64_t bit_count;
 } sha256_context_t;
 
 // BLAKE2b definitions  
@@ -39,13 +42,14 @@ void sha256_hash(const uint8_t* data, size_t len, uint8_t* hash);
 void blake2b_init(blake2b_context_t* ctx, size_t out_len);
 void blake2b_update(blake2b_context_t* ctx, const uint8_t* data, size_t len);
 void blake2b_final(blake2b_context_t* ctx, uint8_t* hash);
-void blake2b_hash(const uint8_t* data, size_t len, uint8_t* hash, size_t out_len);
 
+// Unified hash interface for merkle trees (always 32 bytes output)
+void blake2b_hash(const uint8_t* data, size_t len, uint8_t* hash);
 // RISC-V optimized versions
 void blake2b_init_riscv(blake2b_context_t* ctx, size_t out_len);
 void blake2b_update_riscv(blake2b_context_t* ctx, const uint8_t* data, size_t len);
 void blake2b_final_riscv(blake2b_context_t* ctx, uint8_t* hash);
-void blake2b_hash_riscv(const uint8_t* data, size_t len, uint8_t* hash, size_t out_len);
+void blake2b_hash_riscv(const uint8_t* data, size_t len, uint8_t* hash);
 
 // Hash algorithm interface
 typedef void (*hash_init_func)(void* ctx);
