@@ -1,16 +1,16 @@
 import Link from "next/link";
 
 const stats = [
-  { label: "Proof Generation", value: "< 100ms", target: "Target for 1M leaves", color: "text-cyan-400" },
-  { label: "Proof Verification", value: "< 50ms", target: "Target for 1M leaves", color: "text-blue-400" },
-  { label: "Memory Usage", value: "< 100MB", target: "Target for 1M leaves", color: "text-purple-400" },
-  { label: "Cache Efficiency", value: "> 90%", target: "L1 hit rate target", color: "text-green-400" },
+  { label: "Proof Generation", value: "< 100ms", target: "Target for 1M leaves", color: "text-white" },
+  { label: "Proof Verification", value: "< 50ms", target: "Target for 1M leaves", color: "text-zinc-300" },
+  { label: "Memory Usage", value: "< 100MB", target: "Target for 1M leaves", color: "text-zinc-400" },
+  { label: "Cache Efficiency", value: "> 90%", target: "L1 hit rate target", color: "text-zinc-500" },
 ];
 
 const features = [
   {
     title: "Merkle Proof Generation",
-    description: "Lightning-fast proof generation for large datasets using optimized RISC-V algorithms.",
+    description: "Lightning-fast proof generation for large datasets using optimized algorithms.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -59,31 +59,31 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 sm:py-32">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-600/10" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-500/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/50 via-transparent to-zinc-800/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-800/20 via-transparent to-transparent" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fadeIn">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 mb-8">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              <span className="text-sm text-zinc-400">Challenge B: Amadeus Genesis Hackathon</span>
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              <span className="text-sm text-zinc-400">High-Performance Merkle Proof System</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="text-white">Fastest Merkle Proof on</span>
+              <span className="text-white">Introducing</span>
               <br />
-              <span className="gradient-text">RISC-V Architecture</span>
+              <span className="gradient-text">Sierra</span>
             </h1>
             
             <p className="max-w-2xl mx-auto text-lg sm:text-xl text-zinc-400 mb-10">
-              Building the fastest Merkle proof generation and verification system 
-              optimized for RISC-V with assembly-level performance tuning.
+              High-performance Merkle proof generation and verification system 
+              optimized for modern architectures.
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/architecture"
-                className="px-6 py-3 rounded-lg bg-cyan-500 text-black font-medium hover:bg-cyan-400 transition-colors"
+                className="px-6 py-3 rounded-lg bg-white text-black font-medium hover:bg-zinc-200 transition-colors"
               >
                 View Architecture
               </Link>
@@ -132,7 +132,7 @@ export default function Home() {
                 className="card-hover p-6 rounded-xl bg-zinc-900/50 border border-zinc-800"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4">
+                <div className="w-12 h-12 rounded-lg bg-zinc-800 flex items-center justify-center text-white mb-4">
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
@@ -159,7 +159,7 @@ export default function Home() {
                 key={item.name}
                 className="card-hover p-6 rounded-xl bg-zinc-900/50 border border-zinc-800"
               >
-                <h3 className="text-lg font-semibold text-cyan-400 mb-2">{item.name}</h3>
+                <h3 className="text-lg font-semibold text-white mb-2">{item.name}</h3>
                 <p className="text-zinc-400 text-sm mb-3">{item.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {item.files.map((file) => (
@@ -199,7 +199,7 @@ export default function Home() {
                 href={link.href}
                 className="group p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 card-hover"
               >
-                <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors mb-2">
+                <h3 className="text-lg font-semibold text-white group-hover:text-white transition-colors mb-2">
                   {link.title}
                 </h3>
                 <p className="text-zinc-400 text-sm">{link.desc}</p>
@@ -210,7 +210,7 @@ export default function Home() {
       </section>
 
       {/* Prize Section */}
-      <section className="py-20 bg-gradient-to-r from-cyan-500/10 via-blue-600/10 to-purple-500/10">
+      <section className="py-20 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             <span className="text-white">Prize Pool:</span>{" "}
@@ -225,3 +225,4 @@ export default function Home() {
     </div>
   );
 }
+

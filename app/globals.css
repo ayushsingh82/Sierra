@@ -78,10 +78,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
   }
   50% {
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -91,7 +91,7 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -104,7 +104,7 @@ body {
 
 .card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(34, 211, 238, 0.1);
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.05);
 }
 
 /* Section styling */
@@ -112,10 +112,7 @@ body {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white;
 }
 
 .section-subtitle {
@@ -123,3 +120,4 @@ body {
   color: #a1a1aa;
   margin-bottom: 2rem;
 }
+

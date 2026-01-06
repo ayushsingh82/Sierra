@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 interface DocFile {
   name: string;
@@ -127,7 +126,7 @@ export default function DocsPage() {
               <span className="gradient-text">Documentation</span>
             </h1>
             <p className="max-w-2xl mx-auto text-lg text-zinc-400">
-              Complete documentation for the RISC-V Merkle Proof System
+              Complete documentation for Sierra - High-Performance Merkle Proof System
             </p>
           </div>
         </div>
@@ -157,7 +156,7 @@ export default function DocsPage() {
                 placeholder="Search documentation..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full pl-10 pr-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:border-white transition-colors"
               />
             </div>
 
@@ -169,7 +168,7 @@ export default function DocsPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category
-                      ? "bg-cyan-500 text-black"
+                      ? "bg-white text-black"
                       : "bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800"
                   }`}
                 >
@@ -201,7 +200,7 @@ export default function DocsPage() {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-white flex-shrink-0">
                     {doc.icon}
                   </div>
                   <div className="flex-1">
@@ -216,7 +215,7 @@ export default function DocsPage() {
                       href={`/${doc.path}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
+                      className="inline-flex items-center gap-2 text-sm text-white hover:text-zinc-300 transition-colors"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -268,16 +267,16 @@ export default function DocsPage() {
               { title: "Source Code", href: "/code", desc: "Browse source files" },
               { title: "Benchmarks", href: "/benchmarks", desc: "Performance metrics" },
             ].map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
                 className="group p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 card-hover"
               >
-                <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors mb-2">
+                <h3 className="text-lg font-semibold text-white group-hover:text-white transition-colors mb-2">
                   {link.title}
                 </h3>
                 <p className="text-zinc-400 text-sm">{link.desc}</p>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -288,23 +287,23 @@ export default function DocsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <div className="text-3xl font-bold text-cyan-400 mb-2">{documentationFiles.length}</div>
+              <div className="text-3xl font-bold text-white mb-2">{documentationFiles.length}</div>
               <div className="text-sm text-zinc-400">Total Documents</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <div className="text-3xl font-bold text-purple-400 mb-2">
+              <div className="text-3xl font-bold text-zinc-300 mb-2">
                 {documentationFiles.filter((d) => d.category === "Getting Started").length}
               </div>
               <div className="text-sm text-zinc-400">Getting Started</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <div className="text-3xl font-bold text-blue-400 mb-2">
+              <div className="text-3xl font-bold text-zinc-400 mb-2">
                 {documentationFiles.filter((d) => d.category === "Planning").length}
               </div>
               <div className="text-sm text-zinc-400">Planning</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <div className="text-3xl font-bold text-green-400 mb-2">
+              <div className="text-3xl font-bold text-zinc-500 mb-2">
                 {documentationFiles.filter((d) => d.category === "Reference").length}
               </div>
               <div className="text-sm text-zinc-400">Reference</div>

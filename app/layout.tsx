@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RISC-V Merkle Proof System",
-  description: "Fastest Merkle Proof Generation and Verification on RISC-V Architecture",
+  title: "Sierra - High-Performance Merkle Proof System",
+  description: "Fastest Merkle Proof Generation and Verification System",
 };
 
 export default function RootLayout({
@@ -36,3 +36,4 @@ export default function RootLayout({
     </html>
   );
 }
+

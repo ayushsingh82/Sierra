@@ -1,6 +1,6 @@
-# Challenge B: Succinct Proof on RISC-V 🏆
+# Sierra
 
-**Fastest Merkle Proof Generation and Verification on RISC-V Architecture**
+**High-Performance Merkle Proof Generation and Verification System**
 
 ## 🚀 Quick Start
 
@@ -152,27 +152,9 @@ RISC-V is an open-source instruction set architecture that offers:
 | Judging Period | Jan 16-22, 2025 | Judges evaluate submissions |
 | Winners Announced | Jan 23, 2025 | Results revealed |
 
-## 🏆 Prize Structure
 
-**Total Prize Pool**: $100,000 worth of $AMA tokens
 
-- **1st Place**: $11,500 + potential launchpad support
-- **2nd Place**: $8,500 + community recognition
-- **3rd Place**: $5,000 + networking opportunities
 
-Additional benefits:
-- TensTorrent hardware access during development
-- Mentorship from Amadeus engineers
-- Genesis Builder status for future opportunities
-- Potential for accelerated funding
-
-## 👥 Team Strategy
-
-### Development Phases
-1. **Research & Design** (Days 1-3): Algorithm research, architecture design
-2. **Core Implementation** (Days 4-8): Basic functionality, proof generation
-3. **RISC-V Optimization** (Days 9-12): Assembly optimizations, performance tuning
-4. **Testing & Validation** (Days 13-15): Comprehensive testing, benchmarking
 
 ### Success Factors
 - **Early Start**: Begin development immediately after registration
@@ -181,13 +163,7 @@ Additional benefits:
 - **Thorough Testing**: Ensure correctness while maintaining performance
 - **Good Documentation**: Help judges understand your approach
 
-## 📞 Support & Resources
 
-### Official Channels
-- **Platform**: TAIKAI (https://taikai.network)
-- **Email**: hello@taikai.network
-- **Documentation**: https://docs.ama.one
-- **Community**: Discord (provided upon registration)
 
 ### Technical Resources
 - **RISC-V ISA Manual**: Official specification documentation
@@ -241,18 +217,7 @@ Additional benefits:
 3. **Continuous documentation** updates
 4. **Regular team synchronization** and planning sessions
 
-## 🔗 Quick Links
 
-- [Official Hackathon Rules](rules.md)
-- [Challenge Strategy](challenge-b-plan.md)
-- [Technical Architecture](technical-architecture.md)
-- [Implementation Timeline](implementation-roadmap.md)
-- [Daily Tasks](TODO.md)
-- [Development Guide](development-guide.md)
-- [Resources & Links](resources.md)
 
----
 
-**Let's build the fastest Merkle proof system on RISC-V and win this hackathon! 🏆**
 
-*Last updated: December 2024*

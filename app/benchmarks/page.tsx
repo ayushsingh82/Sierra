@@ -85,7 +85,7 @@ export default function BenchmarksPage() {
               <span className="gradient-text">Benchmarks</span>
             </h1>
             <p className="max-w-2xl mx-auto text-lg text-zinc-400">
-              Performance metrics and optimization results for our RISC-V Merkle proof system
+              Performance metrics and optimization results for our Merkle proof system
             </p>
           </div>
         </div>
@@ -112,8 +112,8 @@ export default function BenchmarksPage() {
                   <h3 className="text-sm font-medium text-white">{metric.name}</h3>
                   <span className={`px-2 py-1 rounded text-xs ${
                     (metric.invert ? metric.current <= metric.target : metric.current <= metric.target)
-                      ? "bg-green-500/20 text-green-400"
-                      : "bg-yellow-500/20 text-yellow-400"
+                      ? "bg-zinc-700 text-white"
+                      : "bg-zinc-600 text-zinc-300"
                   }`}>
                     {metric.current}{metric.unit} / {metric.target}{metric.unit}
                   </span>
@@ -125,8 +125,8 @@ export default function BenchmarksPage() {
                     <div
                       className={`h-full rounded-full transition-all duration-1000 ${
                         (metric.invert ? metric.current <= metric.target : metric.current <= metric.target)
-                          ? "bg-gradient-to-r from-cyan-500 to-green-500"
-                          : "bg-gradient-to-r from-yellow-500 to-orange-500"
+                          ? "bg-gradient-to-r from-zinc-500 to-white"
+                          : "bg-gradient-to-r from-zinc-600 to-zinc-400"
                       }`}
                       style={{
                         width: `${Math.min((metric.current / metric.target) * 100, 100)}%`,
@@ -141,7 +141,7 @@ export default function BenchmarksPage() {
                   {metric.optimizations.map((opt) => (
                     <span
                       key={opt}
-                      className="px-2 py-0.5 text-xs rounded bg-cyan-500/10 text-cyan-400"
+                      className="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-300"
                     >
                       {opt}
                     </span>
@@ -153,13 +153,13 @@ export default function BenchmarksPage() {
         </div>
       </section>
 
-      {/* RISC-V vs Generic Comparison */}
+      {/* Optimized vs Generic Comparison */}
       <section className="py-20 bg-zinc-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="section-title">RISC-V vs Generic Implementation</h2>
+            <h2 className="section-title">Optimized vs Generic Implementation</h2>
             <p className="section-subtitle">
-              Performance comparison showing the impact of our RISC-V optimizations
+              Performance comparison showing the impact of our optimizations
             </p>
           </div>
 
@@ -176,12 +176,12 @@ export default function BenchmarksPage() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-cyan-400">RISC-V Optimized</span>
+                      <span className="text-white">Optimized</span>
                       <span className="text-white font-medium">{comparison.riscv}{comparison.unit}</span>
                     </div>
                     <div className="h-6 bg-zinc-800 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-cyan-500 rounded-full"
+                        className="h-full bg-white rounded-full"
                         style={{
                           width: `${Math.min((comparison.riscv / (comparison.invert ? comparison.generic : comparison.generic * 1.5)) * 100, 100)}%`,
                         }}
@@ -196,7 +196,7 @@ export default function BenchmarksPage() {
                     </div>
                     <div className="h-6 bg-zinc-800 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-zinc-600 rounded-full"
+                        className="h-full bg-zinc-500 rounded-full"
                         style={{
                           width: `${Math.min((comparison.generic / (comparison.invert ? comparison.generic : comparison.generic * 1.5)) * 100, 100)}%`,
                         }}
@@ -205,8 +205,8 @@ export default function BenchmarksPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-center">
-                  <span className="text-green-400 font-semibold">{comparison.improvement}</span>
+                <div className="mt-6 p-4 rounded-lg bg-zinc-800 border border-zinc-700 text-center">
+                  <span className="text-white font-semibold">{comparison.improvement}</span>
                 </div>
               </div>
             ))}
@@ -228,7 +228,7 @@ export default function BenchmarksPage() {
             {[
               {
                 title: "Assembly Kernels",
-                description: "Critical path operations implemented in RISC-V assembly for maximum performance",
+                description: "Critical path operations implemented in assembly for maximum performance",
                 impact: "40% speedup on hash operations",
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -238,7 +238,7 @@ export default function BenchmarksPage() {
               },
               {
                 title: "Cache Optimization",
-                description: "Memory layout optimized for RISC-V cache hierarchy to maximize L1/L2 hit rates",
+                description: "Memory layout optimized for cache hierarchy to maximize L1/L2 hit rates",
                 impact: "94% L1 cache hit rate achieved",
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -248,7 +248,7 @@ export default function BenchmarksPage() {
               },
               {
                 title: "Vector Extensions",
-                description: "RISC-V V-extension used for parallel hash computation",
+                description: "Vector processing used for parallel hash computation",
                 impact: "2-4x throughput on compatible hardware",
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -292,13 +292,13 @@ export default function BenchmarksPage() {
                 className="card-hover p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 animate-fadeIn"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4">
+                <div className="w-12 h-12 rounded-lg bg-zinc-800 flex items-center justify-center text-white mb-4">
                   {technique.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">{technique.title}</h3>
                 <p className="text-zinc-400 text-sm mb-3">{technique.description}</p>
-                <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20">
-                  <span className="text-green-400 text-sm font-medium">{technique.impact}</span>
+                <div className="p-3 rounded-lg bg-zinc-800 border border-zinc-700">
+                  <span className="text-white text-sm font-medium">{technique.impact}</span>
                 </div>
               </div>
             ))}
@@ -307,12 +307,12 @@ export default function BenchmarksPage() {
       </section>
 
       {/* Target Achievement */}
-      <section className="py-20 bg-gradient-to-r from-cyan-500/10 via-blue-600/10 to-purple-500/10">
+      <section className="py-20 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="section-title">Target Achievement</h2>
             <p className="section-subtitle">
-              Progress towards our hackathon performance targets
+              Progress towards our performance targets
             </p>
           </div>
 
@@ -329,14 +329,14 @@ export default function BenchmarksPage() {
               >
                 {'achieved' in stat ? (
                   <>
-                    <div className="text-4xl font-bold text-cyan-400 mb-2">
+                    <div className="text-4xl font-bold text-white mb-2">
                       {stat.achieved}<span className="text-zinc-600">/{stat.total}</span>
                     </div>
                     <div className="text-sm text-zinc-400">{stat.label}</div>
                   </>
                 ) : (
                   <>
-                    <div className="text-4xl font-bold text-green-400 mb-2">{stat.value}</div>
+                    <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
                     <div className="text-sm text-zinc-400">{stat.label}</div>
                   </>
                 )}
