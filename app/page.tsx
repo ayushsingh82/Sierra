@@ -208,20 +208,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Prize Section */}
-      <section className="py-20 bg-zinc-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            <span className="text-white">Prize Pool:</span>{" "}
-            <span className="gradient-text">$100,000 in $AMA tokens</span>
-          </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            Competing for 1st place ($11,500), 2nd place ($8,500), and 3rd place ($5,000) 
-            with potential launchpad support and community recognition.
-          </p>
-        </div>
-      </section>
     </div>
   );
 }
