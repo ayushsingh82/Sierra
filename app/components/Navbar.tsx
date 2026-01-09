@@ -17,7 +17,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-zinc-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black backdrop-blur-md border-b border-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -38,8 +38,8 @@ export default function Navbar() {
                 href={item.href}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === item.href
-                    ? "bg-zinc-800 text-white"
-                    : "text-zinc-400 hover:text-white hover:bg-zinc-800/50"
+                    ? "bg-white text-black"
+                    : "text-white hover:bg-zinc-800"
                 }`}
               >
                 {item.name}
@@ -50,7 +50,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+            className="md:hidden p-2 rounded-lg text-white hover:bg-zinc-800 transition-colors"
             aria-label="Toggle menu"
           >
             <svg
@@ -81,7 +81,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800">
+        <div className="md:hidden bg-black backdrop-blur-md border-b border-transparent">
           <div className="px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <Link
@@ -90,8 +90,8 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                   pathname === item.href
-                    ? "bg-zinc-800 text-white"
-                    : "text-zinc-400 hover:text-white hover:bg-zinc-800/50"
+                    ? "bg-white text-black"
+                    : "text-white hover:bg-zinc-800"
                 }`}
               >
                 {item.name}

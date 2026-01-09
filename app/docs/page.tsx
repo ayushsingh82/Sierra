@@ -118,14 +118,14 @@ export default function DocsPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="py-20 border-b border-zinc-800">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fadeIn">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              <span className="text-white">Project</span>{" "}
-              <span className="gradient-text">Documentation</span>
+              <span className="text-black">Project</span>{" "}
+              <span className="text-black">Documentation</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-lg text-zinc-400">
+            <p className="max-w-2xl mx-auto text-lg text-black/70">
               Complete documentation for Sierra - High-Performance Merkle Proof System
             </p>
           </div>
@@ -133,13 +133,13 @@ export default function DocsPage() {
       </section>
 
       {/* Search and Filter */}
-      <section className="py-8 sticky top-16 bg-black/90 backdrop-blur-md z-40 border-b border-zinc-800">
+      <section className="py-8 sticky top-16 bg-[#FFA977] backdrop-blur-md z-40 border-b border-black/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             {/* Search */}
             <div className="relative w-full md:w-96">
               <svg
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-zinc-500"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black/40"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -156,7 +156,7 @@ export default function DocsPage() {
                 placeholder="Search documentation..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:border-white transition-colors"
+                className="w-full pl-10 pr-4 py-2 rounded-lg bg-white border border-black/10 text-black placeholder-black/40 focus:outline-none focus:border-black transition-colors"
               />
             </div>
 
@@ -168,8 +168,8 @@ export default function DocsPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category
-                      ? "bg-white text-black"
-                      : "bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800"
+                      ? "bg-black text-white"
+                      : "bg-white text-black hover:bg-black/10"
                   }`}
                 >
                   {category}
@@ -184,10 +184,10 @@ export default function DocsPage() {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-white mb-2">
+            <h2 className="text-2xl font-bold text-black mb-2">
               {selectedCategory === "All" ? "All Documents" : selectedCategory}
             </h2>
-            <p className="text-zinc-400">
+            <p className="text-black/50">
               {filteredDocs.length} document{filteredDocs.length !== 1 ? "s" : ""} found
             </p>
           </div>
@@ -196,26 +196,26 @@ export default function DocsPage() {
             {filteredDocs.map((doc, index) => (
               <div
                 key={doc.path}
-                className="card-hover p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 animate-fadeIn"
+                className="card-hover p-6 rounded-xl bg-white border border-transparent animate-fadeIn"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-white flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-black flex items-center justify-center text-white flex-shrink-0">
                     {doc.icon}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <h3 className="text-lg font-semibold text-white">{doc.name}</h3>
-                      <span className="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">
+                      <h3 className="text-lg font-semibold text-black">{doc.name}</h3>
+                      <span className="px-2 py-0.5 text-xs rounded bg-black text-white">
                         {doc.category}
                       </span>
                     </div>
-                    <p className="text-zinc-400 text-sm mb-4">{doc.description}</p>
+                    <p className="text-black/70 text-sm mb-4">{doc.description}</p>
                     <a
                       href={`/${doc.path}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-white hover:text-zinc-300 transition-colors"
+                      className="inline-flex items-center gap-2 text-sm text-black hover:text-black/70 transition-colors"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -231,7 +231,7 @@ export default function DocsPage() {
           {filteredDocs.length === 0 && (
             <div className="text-center py-12">
               <svg
-                className="w-16 h-16 text-zinc-700 mx-auto mb-4"
+                className="w-16 h-16 text-black/20 mx-auto mb-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -243,19 +243,19 @@ export default function DocsPage() {
                   d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h3 className="text-lg font-medium text-white mb-2">No Documents Found</h3>
-              <p className="text-zinc-400">Try adjusting your search or filter criteria</p>
+              <h3 className="text-lg font-medium text-black mb-2">No Documents Found</h3>
+              <p className="text-black/50">Try adjusting your search or filter criteria</p>
             </div>
           )}
         </div>
       </section>
 
       {/* Quick Links */}
-      <section className="py-20 bg-zinc-900/30">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="section-title">Quick Links</h2>
-            <p className="section-subtitle">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-black">Quick Links</h2>
+            <p className="text-lg text-black/70">
               Jump to other sections of the project
             </p>
           </div>
@@ -270,12 +270,12 @@ export default function DocsPage() {
               <a
                 key={link.href}
                 href={link.href}
-                className="group p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 card-hover"
+                className="group p-6 rounded-xl bg-white border border-transparent card-hover"
               >
-                <h3 className="text-lg font-semibold text-white group-hover:text-white transition-colors mb-2">
+                <h3 className="text-lg font-semibold text-black group-hover:text-black transition-colors mb-2">
                   {link.title}
                 </h3>
-                <p className="text-zinc-400 text-sm">{link.desc}</p>
+                <p className="text-black/70 text-sm">{link.desc}</p>
               </a>
             ))}
           </div>
@@ -286,27 +286,27 @@ export default function DocsPage() {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <div className="text-3xl font-bold text-white mb-2">{documentationFiles.length}</div>
-              <div className="text-sm text-zinc-400">Total Documents</div>
+            <div className="text-center p-6 rounded-xl bg-white border border-transparent">
+              <div className="text-3xl font-bold text-black mb-2">{documentationFiles.length}</div>
+              <div className="text-sm text-black/50">Total Documents</div>
             </div>
-            <div className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <div className="text-3xl font-bold text-zinc-300 mb-2">
+            <div className="text-center p-6 rounded-xl bg-white border border-transparent">
+              <div className="text-3xl font-bold text-black/70 mb-2">
                 {documentationFiles.filter((d) => d.category === "Getting Started").length}
               </div>
-              <div className="text-sm text-zinc-400">Getting Started</div>
+              <div className="text-sm text-black/50">Getting Started</div>
             </div>
-            <div className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <div className="text-3xl font-bold text-zinc-400 mb-2">
+            <div className="text-center p-6 rounded-xl bg-white border border-transparent">
+              <div className="text-3xl font-bold text-black/50 mb-2">
                 {documentationFiles.filter((d) => d.category === "Planning").length}
               </div>
-              <div className="text-sm text-zinc-400">Planning</div>
+              <div className="text-sm text-black/50">Planning</div>
             </div>
-            <div className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
-              <div className="text-3xl font-bold text-zinc-500 mb-2">
+            <div className="text-center p-6 rounded-xl bg-white border border-transparent">
+              <div className="text-3xl font-bold text-black/30 mb-2">
                 {documentationFiles.filter((d) => d.category === "Reference").length}
               </div>
-              <div className="text-sm text-zinc-400">Reference</div>
+              <div className="text-sm text-black/50">Reference</div>
             </div>
           </div>
         </div>

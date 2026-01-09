@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -642,11 +643,11 @@ clean:
 ];
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
-  core: { label: "Core", color: "bg-zinc-800 text-white" },
-  hash: { label: "Hash", color: "bg-zinc-700 text-zinc-300" },
-  spi: { label: "SPI", color: "bg-zinc-600 text-zinc-200" },
-  tests: { label: "Tests", color: "bg-zinc-500 text-white" },
-  build: { label: "Build", color: "bg-zinc-400 text-black" },
+  core: { label: "Core", color: "bg-black text-white" },
+  hash: { label: "Hash", color: "bg-black/70 text-white" },
+  spi: { label: "SPI", color: "bg-black/50 text-white" },
+  tests: { label: "Tests", color: "bg-black/30 text-black" },
+  build: { label: "Build", color: "bg-white text-black" },
 };
 
 function highlightCode(code: string): string {
@@ -697,14 +698,14 @@ export default function CodePage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="py-20 border-b border-zinc-800">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fadeIn">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              <span className="text-white">Source</span>{" "}
-              <span className="gradient-text">Code</span>
+              <span className="text-black">Source</span>{" "}
+              <span className="text-black">Code</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-lg text-zinc-400">
+            <p className="max-w-2xl mx-auto text-lg text-black/70">
               Browse and explore the C source code for Sierra
             </p>
           </div>
@@ -714,14 +715,14 @@ export default function CodePage() {
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row min-h-[calc(100vh-16rem)]">
         {/* File List Sidebar */}
-        <div className="w-full lg:w-80 border-r border-zinc-800 bg-zinc-900/30">
+        <div className="w-full lg:w-80 border-r border-black/10 bg-black/5">
           {/* Filter Tabs */}
-          <div className="p-4 border-b border-zinc-800">
+          <div className="p-4 border-b border-black/10">
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setFilter("all")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                  filter === "all" ? "bg-white text-black" : "bg-zinc-800 text-zinc-400 hover:text-white"
+                  filter === "all" ? "bg-black text-white" : "bg-white text-black hover:bg-black/10"
                 }`}
               >
                 All
@@ -731,7 +732,7 @@ export default function CodePage() {
                   key={key}
                   onClick={() => setFilter(key)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                    filter === key ? "bg-white text-black" : "bg-zinc-800 text-zinc-400 hover:text-white"
+                    filter === key ? "bg-black text-white" : "bg-white text-black hover:bg-black/10"
                   }`}
                 >
                   {label}
@@ -746,21 +747,21 @@ export default function CodePage() {
               <button
                 key={file.path}
                 onClick={() => setSelectedFile(file)}
-                className={`w-full px-4 py-3 text-left border-b border-zinc-800/50 transition-colors ${
+                className={`w-full px-4 py-3 text-left border-b border-black/10 transition-colors ${
                   selectedFile?.path === file.path
-                    ? "bg-zinc-800 border-l-2 border-l-white"
-                    : "hover:bg-zinc-800/50"
+                    ? "bg-black text-white"
+                    : "hover:bg-black/5 text-black"
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className={`text-sm font-medium ${selectedFile?.path === file.path ? "text-white" : "text-zinc-300"}`}>
+                  <span className={`text-sm font-medium ${selectedFile?.path === file.path ? "text-white" : "text-black"}`}>
                     {file.name}
                   </span>
-                  <span className={`px-2 py-0.5 rounded text-xs ${categoryLabels[file.category]?.color || "bg-zinc-700 text-zinc-300"}`}>
+                  <span className={`px-2 py-0.5 rounded text-xs ${selectedFile?.path === file.path ? "bg-white text-black" : categoryLabels[file.category]?.color || "bg-white text-black"}`}>
                     {categoryLabels[file.category]?.label}
                   </span>
                 </div>
-                <div className="text-xs text-zinc-500 mt-1">{file.path}</div>
+                <div className={`text-xs mt-1 ${selectedFile?.path === file.path ? "text-white/60" : "text-black/40"}`}>{file.path}</div>
               </button>
             ))}
           </div>
@@ -771,29 +772,29 @@ export default function CodePage() {
           {selectedFile ? (
             <>
               {/* File Header */}
-              <div className="flex items-center justify-between p-4 border-b border-zinc-800 bg-zinc-900/30">
+              <div className="flex items-center justify-between p-4 border-b border-white/10 bg-black">
                 <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   <div>
                     <div className="text-white font-medium">{selectedFile.name}</div>
-                    <div className="text-xs text-zinc-500">{selectedFile.path}</div>
+                    <div className="text-xs text-white/40">{selectedFile.path}</div>
                   </div>
                 </div>
-                <span className={`px-2 py-1 rounded text-xs ${categoryLabels[selectedFile.category]?.color || "bg-zinc-700 text-zinc-300"}`}>
-                  {categoryLabels[selectedFile.category]?.label}
+                <span className="px-2 py-1 rounded text-xs bg-white text-black">
+                  {categoryLabels[selectedFile?.category]?.label}
                 </span>
               </div>
 
               {/* Code Content */}
               <div className="flex-1 overflow-auto">
-                <div className="code-block">
+                <div className="code-block bg-black">
                   <div className="flex">
                     {/* Line Numbers */}
-                    <div className="flex-shrink-0 w-12 py-4 text-right pr-3 bg-zinc-900/50 border-r border-zinc-800">
+                    <div className="flex-shrink-0 w-12 py-4 text-right pr-3 bg-black/50 border-r border-white/10">
                       {selectedFile.content.split("\n").map((_, i) => (
-                        <div key={i} className="text-xs text-zinc-600 font-mono leading-6">
+                        <div key={i} className="text-xs text-white/30 font-mono leading-6">
                           {i + 1}
                         </div>
                       ))}
@@ -801,7 +802,7 @@ export default function CodePage() {
                     {/* Code */}
                     <pre className="flex-1 py-4 pl-2 overflow-x-auto">
                       <code
-                        className="text-sm text-zinc-300 font-mono leading-6"
+                        className="text-sm text-white font-mono leading-6"
                         dangerouslySetInnerHTML={{
                           __html: highlightCode(selectedFile.content),
                         }}
@@ -812,13 +813,13 @@ export default function CodePage() {
               </div>
             </>
           ) : (
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center bg-black">
               <div className="text-center">
-                <svg className="w-16 h-16 text-zinc-700 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-16 h-16 text-white/20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 <h3 className="text-lg font-medium text-white mb-2">No File Selected</h3>
-                <p className="text-zinc-400">Select a file from the sidebar to view its contents</p>
+                <p className="text-white/50">Select a file from the sidebar to view its contents</p>
               </div>
             </div>
           )}
@@ -826,28 +827,28 @@ export default function CodePage() {
       </div>
 
       {/* Quick Stats */}
-      <section className="py-12 border-t border-zinc-800 bg-zinc-900/30">
+      <section className="py-12 border-t border-white/10 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             <div className="text-center">
               <div className="text-2xl font-bold text-white">{sourceFiles.filter(f => f.category === "core").length}</div>
-              <div className="text-sm text-zinc-400">Core Files</div>
+              <div className="text-sm text-white/50">Core Files</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-zinc-300">{sourceFiles.filter(f => f.category === "hash").length}</div>
-              <div className="text-sm text-zinc-400">Hash Files</div>
+              <div className="text-2xl font-bold text-white/70">{sourceFiles.filter(f => f.category === "hash").length}</div>
+              <div className="text-sm text-white/50">Hash Files</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-zinc-400">{sourceFiles.filter(f => f.category === "spi").length}</div>
-              <div className="text-sm text-zinc-400">SPI Files</div>
+              <div className="text-2xl font-bold text-white/50">{sourceFiles.filter(f => f.category === "spi").length}</div>
+              <div className="text-sm text-white/50">SPI Files</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-zinc-500">{sourceFiles.filter(f => f.category === "tests").length}</div>
-              <div className="text-sm text-zinc-400">Test Files</div>
+              <div className="text-2xl font-bold text-white/30">{sourceFiles.filter(f => f.category === "tests").length}</div>
+              <div className="text-sm text-white/50">Test Files</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-white">{sourceFiles.length}</div>
-              <div className="text-sm text-zinc-400">Total Files</div>
+              <div className="text-sm text-white/50">Total Files</div>
             </div>
           </div>
         </div>

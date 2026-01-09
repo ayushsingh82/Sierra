@@ -1,10 +1,10 @@
-import Link from "next/link";
+ import Link from "next/link";
 
 const stats = [
-  { label: "Proof Generation", value: "< 100ms", target: "Target for 1M leaves", color: "text-white" },
-  { label: "Proof Verification", value: "< 50ms", target: "Target for 1M leaves", color: "text-zinc-300" },
-  { label: "Memory Usage", value: "< 100MB", target: "Target for 1M leaves", color: "text-zinc-400" },
-  { label: "Cache Efficiency", value: "> 90%", target: "L1 hit rate target", color: "text-zinc-500" },
+  { label: "Proof Generation", value: "< 100ms", target: "Target for 1M leaves", color: "text-black" },
+  { label: "Proof Verification", value: "< 50ms", target: "Target for 1M leaves", color: "text-black/70" },
+  { label: "Memory Usage", value: "< 100MB", target: "Target for 1M leaves", color: "text-black/60" },
+  { label: "Cache Efficiency", value: "> 90%", target: "L1 hit rate target", color: "text-black/50" },
 ];
 
 const features = [
@@ -58,24 +58,20 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 sm:py-32">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/50 via-transparent to-zinc-800/30" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-800/20 via-transparent to-transparent" />
-        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fadeIn">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 mb-8">
-              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              <span className="text-sm text-zinc-400">High-Performance Merkle Proof System</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black text-white mb-8 border border-transparent">
+              <span className="w-2 h-2 rounded-full bg-[#FFA977] animate-pulse" />
+              <span className="text-sm">High-Performance Merkle Proof System</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="text-white">Introducing</span>
+              <span className="text-black">Introducing</span>
               <br />
-              <span className="gradient-text">Sierra</span>
+              <span className="text-black">Sierra</span>
             </h1>
             
-            <p className="max-w-2xl mx-auto text-lg sm:text-xl text-zinc-400 mb-10">
+            <p className="max-w-2xl mx-auto text-lg sm:text-xl text-black/70 mb-10">
               High-performance Merkle proof generation and verification system 
               optimized for modern architectures.
             </p>
@@ -83,13 +79,13 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/architecture"
-                className="px-6 py-3 rounded-lg bg-white text-black font-medium hover:bg-zinc-200 transition-colors"
+                className="px-6 py-3 rounded-lg bg-black text-white font-medium hover:bg-black/80 transition-colors"
               >
                 View Architecture
               </Link>
               <Link
                 href="/code"
-                className="px-6 py-3 rounded-lg border border-zinc-700 text-white font-medium hover:bg-zinc-800 transition-colors"
+                className="px-6 py-3 rounded-lg border border-black text-black font-medium hover:bg-black hover:text-white transition-colors"
               >
                 Explore Code
               </Link>
@@ -99,16 +95,16 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 border-y border-zinc-800">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={stat.label} className="text-center card-hover p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+              <div key={stat.label} className="text-center card-hover p-6 rounded-xl bg-white border border-transparent">
                 <div className={`text-3xl sm:text-4xl font-bold mb-2 ${stat.color}`}>
                   {stat.value}
                 </div>
-                <div className="text-sm text-white font-medium mb-1">{stat.label}</div>
-                <div className="text-xs text-zinc-500">{stat.target}</div>
+                <div className="text-sm text-black font-medium mb-1">{stat.label}</div>
+                <div className="text-xs text-black/50">{stat.target}</div>
               </div>
             ))}
           </div>
@@ -119,8 +115,8 @@ export default function Home() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="section-title">Core Features</h2>
-            <p className="section-subtitle">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-black">Core Features</h2>
+            <p className="text-lg text-black/70">
               Everything you need for high-performance Merkle proof operations
             </p>
           </div>
@@ -129,14 +125,14 @@ export default function Home() {
             {features.map((feature, index) => (
               <div
                 key={feature.title}
-                className="card-hover p-6 rounded-xl bg-zinc-900/50 border border-zinc-800"
+                className="card-hover p-6 rounded-xl bg-white border border-transparent"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-lg bg-zinc-800 flex items-center justify-center text-white mb-4">
+                <div className="w-12 h-12 rounded-lg bg-black flex items-center justify-center text-white mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-zinc-400 text-sm">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-black mb-2">{feature.title}</h3>
+                <p className="text-black/70 text-sm">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -144,11 +140,11 @@ export default function Home() {
       </section>
 
       {/* Project Structure Section */}
-      <section className="py-20 bg-zinc-900/30">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="section-title">Project Structure</h2>
-            <p className="section-subtitle">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-black">Project Structure</h2>
+            <p className="text-lg text-black/70">
               Organized for performance and maintainability
             </p>
           </div>
@@ -157,15 +153,15 @@ export default function Home() {
             {projectStructure.map((item) => (
               <div
                 key={item.name}
-                className="card-hover p-6 rounded-xl bg-zinc-900/50 border border-zinc-800"
+                className="card-hover p-6 rounded-xl bg-white border border-transparent"
               >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.name}</h3>
-                <p className="text-zinc-400 text-sm mb-3">{item.description}</p>
+                <h3 className="text-lg font-semibold text-black mb-2">{item.name}</h3>
+                <p className="text-black/70 text-sm mb-3">{item.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {item.files.map((file) => (
                     <span
                       key={file}
-                      className="px-2 py-1 text-xs rounded bg-zinc-800 text-zinc-300"
+                      className="px-2 py-1 text-xs rounded bg-black text-white"
                     >
                       {file}
                     </span>
@@ -181,8 +177,8 @@ export default function Home() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="section-title">Explore More</h2>
-            <p className="section-subtitle">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-black">Explore More</h2>
+            <p className="text-lg text-black/70">
               Navigate through different aspects of the project
             </p>
           </div>
@@ -197,12 +193,12 @@ export default function Home() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 card-hover"
+                className="group p-6 rounded-xl bg-white border border-transparent card-hover"
               >
-                <h3 className="text-lg font-semibold text-white group-hover:text-white transition-colors mb-2">
+                <h3 className="text-lg font-semibold text-black group-hover:text-black transition-colors mb-2">
                   {link.title}
                 </h3>
-                <p className="text-zinc-400 text-sm">{link.desc}</p>
+                <p className="text-black/70 text-sm">{link.desc}</p>
               </Link>
             ))}
           </div>
