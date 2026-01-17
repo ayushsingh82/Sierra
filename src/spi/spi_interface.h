@@ -1,4 +1,4 @@
-#define SPI_INTERFACE_H
+#ifndef SPI_INTERFACE_H
 #define SPI_INTERFACE_H
 
 #include <stdint.h>

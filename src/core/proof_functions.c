@@ -1,5 +1,5 @@
 #include "merkle_tree.h"
-#include "hash_functions.h"
+#include "hash/hash_functions.h"
 #include <stdlib.h>
 #include <string.h>
 

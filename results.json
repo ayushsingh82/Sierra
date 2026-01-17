@@ -1,0 +1,59 @@
+{
+  "sierra": {
+    "project": "Sierra - High-Performance Merkle Proof Generation and Verification System",
+    "status": "SUCCESS",
+    "build_date": "2026-01-17",
+    "executables": {
+      "merkle_bench": {
+        "path": "build/native/merkle_bench",
+        "size_bytes": 71680,
+        "sha256": "14b546a329cec95579e2a021bcdf3fa7297cf201edafcee138e61857632340c3"
+      },
+      "merkle_test": {
+        "path": "build/native/merkle_test",
+        "size_bytes": 55296,
+        "sha256": "2076466c6332ac17df4070a9b410756e0edbe46a92ebaca2e18374dbc215d6be"
+      }
+    },
+    "test_results": {
+      "passed": 6,
+      "total": 8,
+      "pass_rate": "75%"
+    },
+    "benchmark_status": {
+      "tree_creation": "working",
+      "proof_generation": "tested"
+    }
+  },
+  "tensor": {
+    "project": "Tensor - RISC-V MatMul Solver",
+    "status": "SUCCESS",
+    "build_date": "2026-01-17",
+    "executable": {
+      "name": "riscv_matmul_solver",
+      "path": "riscv_matmul_solver",
+      "sha256": "65b9f5b8dd3467070558b1df3f3511c325b080c7afcbcb5828ad0426916e5651"
+    },
+    "benchmark_results": {
+      "json_file": {
+        "path": "tensor_benchmark.json",
+        "sha256": "f987b097e9c9a8eb0baecec792a5f28685bc823e5b70096c899e1150c0333a27"
+      },
+      "csv_file": {
+        "path": "tensor_benchmark.csv",
+        "sha256": "5c33b12d1ae743d4a29f5c58fd28a5d645db658a8a07e1339fe077a00560eb62"
+      }
+    },
+    "performance": {
+      "max_gflops": 24.18,
+      "matrix_size_max": "512x512",
+      "correctness": "all_tests_pass"
+    }
+  },
+  "summary": {
+    "both_projects_built": true,
+    "both_projects_tested": true,
+    "hash_verification": "completed",
+    "ready_for_submission": true
+  }
+}

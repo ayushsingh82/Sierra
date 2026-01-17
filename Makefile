@@ -9,12 +9,11 @@ LDFLAGS = -lm -lpthread
 BUILD_DIR = build
 SRC_DIR = src
 
-# Default target
-all: native
+# Default target - defined after BUILD_PATH is set
 
 # Native build (for testing on host)
 native:
-	@$(MAKE) BUILD_TYPE=native $(MAKECMDGOALS)
+	@$(MAKE) BUILD_TYPE=native all
 
 # Debug build
 debug:
@@ -56,7 +55,7 @@ help:
 # Source files
 CORE_SOURCES = $(wildcard $(SRC_DIR)/core/*.c)
 HASH_SOURCES = $(wildcard $(SRC_DIR)/hash/*.c)
-SPI_SOURCES = $(wildcard $(SRC_DIR)/spi/*.c)
+SPI_SOURCES = $(filter-out $(SRC_DIR)/spi/main_bench.c,$(wildcard $(SRC_DIR)/spi/*.c))
 TEST_SOURCES = $(wildcard $(SRC_DIR)/tests/*.c)
 
 # Header files
@@ -70,8 +69,8 @@ HASH_OBJECTS = $(HASH_SOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 SPI_OBJECTS = $(SPI_SOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 TEST_OBJECTS = $(TEST_SOURCES:$(SRC_DIR)/tests/%.c=$(BUILD_DIR)/%.o)
 
-# Include directories
-INCLUDES = -I$(SRC_DIR)/core -I$(SRC_DIR)/hash -I$(SRC_DIR)/spi
+# Include directories  
+INCLUDES = -I$(SRC_DIR)
 
 # Build type specific settings
 ifeq ($(BUILD_TYPE),debug)
@@ -91,6 +90,13 @@ endif
 
 # Final build directory
 BUILD_PATH = $(BUILD_DIR)/$(BUILD_SUBDIR)
+
+# Default target - defined after BUILD_PATH is set
+ifeq ($(BUILD_TYPE),)
+all: native
+else
+all: $(BUILD_PATH)/merkle_bench $(BUILD_PATH)/merkle_test
+endif
 
 # Create build directory
 $(BUILD_PATH):
@@ -116,8 +122,8 @@ $(BUILD_PATH)/merkle_test: $(BUILD_PATH)/main_test.o $(CORE_OBJECTS) $(HASH_OBJE
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 # Dependencies
-$(BUILD_PATH)/main_bench.o: $(SRC_DIR)/main_bench.c $(CORE_HEADERS) $(HASH_HEADERS) $(SPI_HEADERS) | $(BUILD_PATH)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $(SRC_DIR)/main_bench.c -o $@
+$(BUILD_PATH)/main_bench.o: $(SRC_DIR)/spi/main_bench.c $(CORE_HEADERS) $(HASH_HEADERS) $(SPI_HEADERS) | $(BUILD_PATH)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $(SRC_DIR)/spi/main_bench.c -o $@
 
 $(BUILD_PATH)/main_test.o: $(SRC_DIR)/main_test.c $(CORE_HEADERS) $(HASH_HEADERS) $(SPI_HEADERS) | $(BUILD_PATH)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $(SRC_DIR)/main_test.c -o $@

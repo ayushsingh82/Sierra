@@ -1,4 +1,5 @@
 #include "spi_interface.h"
+#include "hash/hash_functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

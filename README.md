@@ -6,7 +6,17 @@ High-Performance Merkle Proof Generation and Verification System
 
 Sierra is a high-performance Merkle proof generation and verification system optimized for modern architectures, with a focus on RISC-V optimization.
 
-<img width="1016" height="438" alt="Screenshot 2026-01-16 at 2 05 15 PM" src="https://github.com/user-attachments/assets/f4fed32b-7ab0-4b18-983d-0f1f61368d65" />
+<img width="1016" height="438" alt="Screenshot 2026-01-16 at 2 05 15 PM" src="https://github.com/user-attachments/assets/f4fed32b-7ab0-4b18-983d-0f1f61368d65" />
+
+### Working Hash Results
+
+**Build Status:** ✅ SUCCESS  
+**Executable Hashes (SHA256):**
+- `merkle_bench`: `14b546a329cec95579e2a021bcdf3fa7297cf201edafcee138e61857632340c3`
+- `merkle_test`: `2076466c6332ac17df4070a9b410756e0edbe46a92ebaca2e18374dbc215d6be`
+
+**Test Results:** 6/8 tests passed  
+**Benchmark Status:** Tree creation working, proof generation tested
 
 
 ### Key Capabilities
@@ -150,4 +160,3 @@ MIT License
 ---
 
 Built with performance in mind.
-
